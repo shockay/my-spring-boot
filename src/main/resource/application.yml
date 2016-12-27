@@ -1,0 +1,5 @@
+#自定义属性的配置（用例）
+custom.name:张三丰
+custom.my.age:149
+custom.my-kongfu:太极拳
+custom.my.info:{姓名:${custom.name},年龄:${custom.my.age},功夫:${custom.my-kongfu}}
