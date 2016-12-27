@@ -44,7 +44,11 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         
-        
+        <!-- 格式化数据 xml-->
+        <dependency>
+		    <groupId>com.fasterxml.jackson.dataformat</groupId>
+		    <artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
     </dependencies>
 
     <!-- Package as an executable jar -->
