@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>hello.html</title>
+</head>
+<body>
+<table>
+	<thead>
+		<tr>
+			<th>编号</th>
+			<th>消息</th>
+			<th>时间</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="v,vStat:${list}">
+			<td th:text="${v.id}">1</td>
+			<td th:text="${v.msg}">你好</td>
+			<td th:text="${v.date}">2016-12-26</td>
+		</tr>
+	</tbody>
+</table>
+
+
+</body>
+</html>
