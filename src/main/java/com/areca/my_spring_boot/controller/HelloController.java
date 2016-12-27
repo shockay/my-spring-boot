@@ -2,6 +2,8 @@ package com.areca.my_spring_boot.controller;
 
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,8 @@ import com.areca.my_spring_boot.service.HelloService;
 @Controller
 public class HelloController {
 
+	private Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	HelloService service;
 	
@@ -45,6 +49,7 @@ public class HelloController {
 	
 	@RequestMapping("/hello/list")
 	public String list(Model model){
+		log.info("访问了 {} 接口，现在时间为 {}","/hello/list",new Date());
 		model.addAttribute("list", service.queryHello());
 		return "list";
 	}
