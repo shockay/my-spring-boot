@@ -1,22 +1,18 @@
 package com.areca.my_spring_boot.config;
 
-import java.io.Serializable;
-
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
+@Component
 @Configuration
-public class MyCustomConfig implements Serializable {
+@ConfigurationProperties(prefix = "myconfig")
+public class MyConfig {
 	
-	private static final long serialVersionUID = 1L;
-	
-	@Value("${name}")
 	private String name;
 	
-	@Value("${my.age}")
 	private Integer age;
 	
-	@Value("${my-kongfu}")
 	private String kongfu;
 	
 	public static String info;
@@ -49,24 +45,13 @@ public class MyCustomConfig implements Serializable {
 		return info;
 	}
 
-	@Value("${my.info}")
 	public static void setInfo(String info) {
-		MyCustomConfig.info = info;
+		MyConfig.info = info;
 	}
 
 	@Override
 	public String toString() {
-		return "MyCustomConfig [name=" + name + ", age=" + age + ", kongfu=" + kongfu + "]";
-	}
-
-	public MyCustomConfig(String name, Integer age, String kongfu) {
-		super();
-		this.name = name;
-		this.age = age;
-		this.kongfu = kongfu;
-	}
-
-	public MyCustomConfig() {
+		return "MyConfig [name=" + name + ", age=" + age + ", kongfu=" + kongfu + "]";
 	}
 	
 }

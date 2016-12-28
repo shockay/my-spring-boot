@@ -1,5 +1,6 @@
-#自定义属性的配置（用例）
-custom.name:张三丰
-custom.my.age:149
-custom.my-kongfu:太极拳
-custom.my.info:{姓名:${custom.name},年龄:${custom.my.age},功夫:${custom.my-kongfu}}
+#ymal格式，属性变量和值中间需要有空格（在冒号后面加）
+myconfig:
+         name: 张三丰
+         age: 149
+         kongfu: 太极拳
+         info: "${name}"
