@@ -1,5 +1,6 @@
 package com.areca.my_spring_boot.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -11,8 +12,10 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  */
 @XmlRootElement
-public class HelloBean {
+public class HelloBean implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	private Integer id;
 	private String msg;
 	private Date date;

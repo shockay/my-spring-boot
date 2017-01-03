@@ -10,13 +10,13 @@ public class MyCustomConfig implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Value("${name}")
+//	@Value("${name}")
 	private String name;
 	
-	@Value("${my.age}")
+//	@Value("${my.age}")
 	private Integer age;
 	
-	@Value("${my-kongfu}")
+//	@Value("${my-kongfu}")
 	private String kongfu;
 	
 	public static String info;
@@ -49,7 +49,7 @@ public class MyCustomConfig implements Serializable {
 		return info;
 	}
 
-	@Value("${my.info}")
+//	@Value("${my.info}")
 	public static void setInfo(String info) {
 		MyCustomConfig.info = info;
 	}

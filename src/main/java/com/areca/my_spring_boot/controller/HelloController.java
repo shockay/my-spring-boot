@@ -50,7 +50,7 @@ public class HelloController {
 	@RequestMapping("/hello/list")
 	public String list(Model model){
 		log.info("访问了 {} 接口，现在时间为 {}","/hello/list",new Date());
-		model.addAttribute("list", service.queryHello());
+		model.addAttribute("list", service.queryHellos());
 		return "list";
 	}
 	
