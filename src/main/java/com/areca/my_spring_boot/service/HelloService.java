@@ -13,7 +13,7 @@ import com.areca.my_spring_boot.bean.HelloBean;
 import com.areca.my_spring_boot.dao.Dao;
 
 @Service
-@CacheConfig(cacheNames = "Hello")
+@CacheConfig(cacheNames = "Hello")  //在service层增加缓存 
 public class HelloService {
 
 	private Logger log = LoggerFactory.getLogger(this.getClass());

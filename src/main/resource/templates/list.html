@@ -5,6 +5,7 @@
 <title>list.html</title>
 </head>
 <body>
+<div th:text="${now}">现在时间为：</div>
 <table>
 	<thead>
 		<tr>
@@ -21,7 +22,7 @@
 		</tr>
 	</tbody>
 </table>
-
+<div th:text="${application.config.info}"></div>
 
 </body>
 </html>
