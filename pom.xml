@@ -70,6 +70,14 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- 缓存配置 end -->
+		
+		<!-- spring-session end -->
+		<dependency>
+		    <groupId>org.springframework.session</groupId>
+		    <artifactId>spring-session-jdbc</artifactId>
+		</dependency>
+		<!-- spring-session start -->
+
 
 	</dependencies>
 

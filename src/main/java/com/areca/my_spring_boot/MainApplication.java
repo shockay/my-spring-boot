@@ -4,7 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 
+@EnableJdbcHttpSession		//开启 EnableJdbcHttpSession
 @ServletComponentScan 		//启用servlet组件的扫描
 @EnableCaching 				//启用缓存的注解
 @SpringBootApplication

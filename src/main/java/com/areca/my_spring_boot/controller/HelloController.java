@@ -1,6 +1,9 @@
 package com.areca.my_spring_boot.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,48 +22,74 @@ import com.areca.my_spring_boot.service.HelloService;
 public class HelloController {
 
 	private Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
+	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
 	@Autowired
 	HelloService service;
-	
+
 	@RequestMapping("/hello")
-	public String hello(Model model){
-		
+	public String hello(Model model) {
+
 		model.addAttribute("msg", "你好");
 		return "hello";
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/hello/json", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE) //配置json的导航支持
-	public Object helloBeanJson(){
-//		HelloBean hello = new HelloBean();
-//		hello.setId(123);
-//		hello.setMsg("你好");
-//		hello.setDate(new Date());
-//		return hello;
-		return new HelloBean(123,"你好",new Date());
+	@RequestMapping(value = "/hello/json", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE) // 配置json的导航支持
+	public Object helloBeanJson() {
+		// HelloBean hello = new HelloBean();
+		// hello.setId(123);
+		// hello.setMsg("你好");
+		// hello.setDate(new Date());
+		// return hello;
+		return new HelloBean(123, "你好", new Date());
 	}
-	
+
 	@ResponseBody
-	@RequestMapping(value = "/hello/xml", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE) //配置xml的导航支持
-	public Object helloBeanXml(){
-		return new HelloBean(123,"你好",new Date());
+	@RequestMapping(value = "/hello/xml", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE) // 配置xml的导航支持
+	public Object helloBeanXml() {
+		return new HelloBean(123, "你好", new Date());
 	}
-	
+
 	@RequestMapping("/hello/list")
-	public String list(Model model){
-		log.info("访问了 {} 接口，现在时间为 {}","/hello/list",new Date());
-		model.addAttribute("now", new Date());
+	public String list(Model model) {
+		log.info("访问了 {} 接口，现在时间为 {}", "/hello/list", nowTime(model));
 		model.addAttribute("list", service.queryHellos());
 		return "list";
 	}
-	
+
 	@RequestMapping("/hello/info")
-	public String info(Integer id,Model model){
-		model.addAttribute("v",service.queryHello(id));
+	public String info(Integer id, Model model) {
+		model.addAttribute("v", service.queryHello(id));
 		return "info";
 	}
-	
-	
-	
+
+	/**
+	 * spring-boot和spring-session集成
+	 * @param session
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/hello/session/list")
+	public String session(HttpSession session, Model model) {
+		Object obj = session.getAttribute("session");
+		log.info("obj : {}", obj);
+		if (obj == null) {
+			session.setAttribute("session", 123);
+		}
+		log.info("访问了 {} 接口 , 现在时间为 {} ", "/hello/list", nowTime(model));
+		model.addAttribute("list", service.queryHellos());
+		return "list";
+	}
+
+	/**
+	 * 获取当前时间并格式化
+	 * @return
+	 */
+	private String nowTime(Model model){
+		String now = sdf.format(new Date());
+		model.addAttribute("now", now);
+		return now;
+	}
 }

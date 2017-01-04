@@ -3,4 +3,4 @@ myconfig:
          name: 张三丰
          age: 149
          kongfu: 太极拳
-         info: "${name}"
+         info: '姓名：${myconfig.name}，年龄：${myconfig.age}，功夫：${myconfig.kongfu}'
