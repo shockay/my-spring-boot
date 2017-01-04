@@ -4,3 +4,14 @@ myconfig:
          age: 149
          kongfu: 太极拳
          info: '姓名：${myconfig.name}，年龄：${myconfig.age}，功夫：${myconfig.kongfu}'
+
+
+#ymal格式配置数据源
+#(Establishing SSL connection without server's identity verification is not recommended. 解决这个错误，需要在url后添加&useSSL=false)
+spring:
+     datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        username: br2zz
+        password: 123456
+        url: jdbc:mysql://192.168.137.3:3306/springboot_0?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+#        url: jdbc:mysql://192.168.1.28:3306/springboot_0?useUnicode=true&characterEncoding=UTF-8&useSSL=false

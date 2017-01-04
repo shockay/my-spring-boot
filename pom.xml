@@ -71,12 +71,19 @@
 		</dependency>
 		<!-- 缓存配置 end -->
 		
-		<!-- spring-session end -->
+		<!-- spring-session start -->
 		<dependency>
 		    <groupId>org.springframework.session</groupId>
 		    <artifactId>spring-session-jdbc</artifactId>
 		</dependency>
-		<!-- spring-session start -->
+		<!-- spring-session end -->
+		
+		<!-- websocket配置 start -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+		<!-- websocket配置 end -->
 
 
 	</dependencies>
